@@ -5,6 +5,7 @@
 	<exclude-pattern>*/web/index*.php</exclude-pattern>
 	<exclude-pattern>*/tests/_bootstrap.php</exclude-pattern>
 	<exclude-pattern>*/tests/_support/_generated/*.php</exclude-pattern>
+	<exclude-pattern>*/vendor/*</exclude-pattern>
 	<rule ref="Generic.Arrays.DisallowLongArraySyntax"/>
 	<rule ref="Generic.Classes.DuplicateClassName"/>
 	<rule ref="Generic.CodeAnalysis.EmptyStatement">
@@ -169,7 +170,6 @@
 	</rule>
 	<rule ref="SlevomatCodingStandard.Namespaces.DisallowGroupUse"/>
 	<rule ref="SlevomatCodingStandard.Namespaces.FullyQualifiedClassNameInAnnotation"/>
-	<rule ref="SlevomatCodingStandard.Namespaces.FullyQualifiedExceptions"/>
 	<rule ref="SlevomatCodingStandard.Namespaces.MultipleUsesPerLine"/>
 	<rule ref="SlevomatCodingStandard.Namespaces.ReferenceUsedNamesOnly">
 		<properties>
