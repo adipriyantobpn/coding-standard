@@ -1,5 +1,10 @@
 <?xml version="1.0"?>
 <ruleset name="Consistence">
+	<arg name="tab-width" value="4"/>
+	<arg name="extensions" value="php"/>
+	<exclude-pattern>*/web/index*.php</exclude-pattern>
+	<exclude-pattern>*/tests/_bootstrap.php</exclude-pattern>
+	<exclude-pattern>*/tests/_support/_generated/*.php</exclude-pattern>
 	<rule ref="Generic.Arrays.DisallowLongArraySyntax"/>
 	<rule ref="Generic.Classes.DuplicateClassName"/>
 	<rule ref="Generic.CodeAnalysis.EmptyStatement">
@@ -8,7 +13,6 @@
 	<rule ref="Generic.CodeAnalysis.ForLoopShouldBeWhileLoop"/>
 	<rule ref="Generic.CodeAnalysis.UnconditionalIfStatement"/>
 	<rule ref="Generic.CodeAnalysis.UnnecessaryFinalModifier"/>
-	<rule ref="Generic.Files.InlineHTML"/>
 	<rule ref="Generic.Formatting.SpaceAfterCast"/>
 	<rule ref="Generic.Functions.OpeningFunctionBraceBsdAllman"/>
 	<rule ref="Generic.NamingConventions.ConstructorName"/>
@@ -20,17 +24,15 @@
 			<property name="allowMultiline" value="true"/>
 		</properties>
 	</rule>
-	<rule ref="Generic.WhiteSpace.DisallowSpaceIndent"/>
-	<rule ref="Generic.WhiteSpace.ScopeIndent">
-		<properties>
-			<property name="tabIndent" value="true"/>
-		</properties>
+	<rule ref="Generic.WhiteSpace">
+		<exclude name="Generic.WhiteSpace.DisallowSpaceIndent"/>
 	</rule>
 	<rule ref="PEAR.Classes.ClassDeclaration"/>
 	<rule ref="PEAR.Commenting.InlineComment"/>
 	<rule ref="PEAR.Formatting.MultiLineAssignment"/>
 	<rule ref="PEAR.WhiteSpace.ObjectOperatorIndent"/>
 	<rule ref="PSR2">
+		<exclude name="Generic.Files.InlineHTML"/><!-- can not be suppressed -->
 		<exclude name="Generic.Files.LineLength"/><!-- can not be suppressed -->
 		<exclude name="Generic.WhiteSpace.DisallowTabIndent"/><!-- don't check indentation with spaces -->
 		<exclude name="PEAR.Functions.ValidDefaultValue"/><!-- we want to allow null as "default" value -->
@@ -44,6 +46,8 @@
 		<exclude name="Squiz.WhiteSpace.ControlStructureSpacing.SpacingAfterOpen"/><!-- we want to allow empty line in control structure e.g. in catch blocks, where it can improve readability -->
 		<exclude name="Squiz.WhiteSpace.ControlStructureSpacing.SpacingAfterOpenBrace"/><!-- we want to put first expression of multiline condition on next line -->
 		<exclude name="Squiz.WhiteSpace.ControlStructureSpacing.SpacingBeforeClose"/><!-- we want to allow empty line in control structure e.g. in try blocks, where it can improve readability -->
+		<exclude name="PSR2.Classes.PropertyDeclaration.Underscore"/>
+		<exclude name="PSR2.Methods.MethodDeclaration.Underscore"/>
 	</rule>
 	<rule ref="Squiz.Arrays.ArrayBracketSpacing"/>
 	<rule ref="Squiz.Arrays.ArrayDeclaration">
@@ -57,6 +61,7 @@
 		<exclude name="Squiz.Arrays.ArrayDeclaration.NoCommaAfterLast"/><!-- expects multi-value array always written on multiple lines -->
 		<exclude name="Squiz.Arrays.ArrayDeclaration.SingleLineNotAllowed"/><!-- multiple values can be written on a single line -->
 		<exclude name="Squiz.Arrays.ArrayDeclaration.ValueNotAligned"/><!-- we don't want spacing with alignment -->
+		<exclude name="Squiz.Arrays.ArrayDeclaration.KeySpecified"/>
 	</rule>
 	<rule ref="Squiz.Classes.ClassFileName"/>
 	<rule ref="Squiz.Classes.SelfMemberReference"/>
@@ -163,15 +168,6 @@
 		</properties>
 	</rule>
 	<rule ref="SlevomatCodingStandard.Namespaces.DisallowGroupUse"/>
-	<rule ref="SlevomatCodingStandard.Namespaces.FullyQualifiedClassNameAfterKeyword">
-		<properties>
-			<property name="keywordsToCheck" type="array" value="
-				T_EXTENDS,
-				T_IMPLEMENTS,
-				T_USE,
-			"/>
-		</properties>
-	</rule>
 	<rule ref="SlevomatCodingStandard.Namespaces.FullyQualifiedClassNameInAnnotation"/>
 	<rule ref="SlevomatCodingStandard.Namespaces.FullyQualifiedExceptions"/>
 	<rule ref="SlevomatCodingStandard.Namespaces.MultipleUsesPerLine"/>
@@ -193,11 +189,6 @@
 	</rule>
 	<rule ref="SlevomatCodingStandard.Namespaces.UseDoesNotStartWithBackslash"/>
 	<rule ref="SlevomatCodingStandard.Namespaces.UseFromSameNamespace"/>
-	<rule ref="SlevomatCodingStandard.TypeHints.DeclareStrictTypes">
-		<properties>
-			<property name="newlinesCountBetweenOpenTagAndDeclare" value="2"/>
-		</properties>
-	</rule>
 	<rule ref="SlevomatCodingStandard.TypeHints.LongTypeHints"/>
 	<rule ref="SlevomatCodingStandard.TypeHints.NullableTypeForNullDefaultValue"/>
 	<rule ref="SlevomatCodingStandard.TypeHints.ParameterTypeHintSpacing"/>
