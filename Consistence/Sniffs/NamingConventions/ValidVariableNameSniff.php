@@ -23,6 +23,7 @@ class ValidVariableNameSniff extends \PHP_CodeSniffer\Sniffs\AbstractVariableSni
 		'_COOKIE',
 		'_FILES',
 		'GLOBALS',
+		'I',
 	];
 
 	/**
